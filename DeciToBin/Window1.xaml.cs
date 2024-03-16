@@ -1,0 +1,311 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Threading;
+
+namespace DeciToBin
+{
+    /// <summary>
+    /// Interaction logic for Window1.xaml
+    /// </summary>
+    public partial class Window1 : Window
+    {
+        private DispatcherTimer _timer = null;
+        private Stack<string> bits = new Stack<string>();
+        private Random rnd = new Random();
+        private TextBox[] txtbox = new TextBox[] { };
+        private int deciNum = 0;
+        private int tempVal = 0;
+        private int roundTime = 0;
+        private int maxTime = 60;
+        private int reduction = 0;
+        private int roundCount = 0;
+        private bool isCorrect = false;
+        public Window1()
+        {
+            InitializeComponent();
+            txtbox = new TextBox[] { tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8 };
+            _timer = new DispatcherTimer();
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            roundTime = maxTime;
+            lblTimer.Visibility = Visibility.Visible;
+            gameStart();
+        }
+        #region game_functions
+        private void gameStart()
+        {
+            tblRound.Text = $"Round {roundCount + 1}";
+            if (roundCount > 0)
+                timerReduction();
+            generateRandom();
+            convertDecToBinary();
+            for (int i = 0; i < txtbox.Length; i++)
+                txtbox[i].Text = "0";
+            _timer.Start();
+            tb1.Focus();
+        }
+        private void checkAns()
+        {
+            isCorrect = true;
+            string[] ansArr = new string[] { };
+            string answer = "";
+
+            for (int i = 0; i < txtbox.Length; i++)
+                answer += txtbox[i].Text;
+
+            ansArr = bits.ToArray();
+            for (int x = 0; x < answer.Length; x++)
+            {
+                if (answer[x].ToString() != ansArr[x])
+                {
+                    soundWrong.Position = new TimeSpan(0, 0, 0);
+                    soundWrong.Play();
+                    isCorrect = false;
+                    break;
+                }
+            }
+            if (isCorrect)
+            {
+                _timer.Stop();
+                soundCorrect.Position = new TimeSpan(0, 0, 0);
+                soundCorrect.Play();
+                roundCount++;
+                gameStart();
+            }
+        }
+        #endregion
+
+        #region timer_stuff
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            lblTimer.Content = roundTime;
+            roundTime--;
+            if (roundTime < 0)
+            {
+                _timer.Stop();
+                MessageBox.Show("Game over! \nYou ran out of time.");
+                this.Close();
+            }
+        }
+        private void timerReduction()
+        {
+            reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
+            maxTime = maxTime - reduction;
+            roundTime = maxTime;
+        }
+        #endregion
+
+        #region deci_to_bin
+        private void generateRandom()
+        {
+            deciNum = rnd.Next(0, 41);
+            tblDecimal.Text = deciNum.ToString();
+        }
+        private void convertDecToBinary()
+        {
+            bits = new Stack<string>();
+
+            while (deciNum > 0)
+            {
+                if (deciNum % 2 == 1)
+                {
+                    bits.Push("1");
+                    deciNum--;
+                }
+                else
+                    bits.Push("0");
+
+                deciNum = deciNum / 2;
+            }
+
+            while (bits.Count != 8)
+                bits.Push("0");
+        }
+        #endregion
+
+        #region input_events
+        private void tb1_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb2_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb3_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb4_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb5_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb6_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb7_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb8_input(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region keyUp_events
+        private void changeValues(string value)
+        {
+            tempVal = int.Parse(value);
+            if (tempVal == 0)
+                tempVal = 1;
+            else if (tempVal == 1)
+                tempVal = 0;
+        }
+        private void tb1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[0].Text);
+                txtbox[0].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[1].Focus();
+        }
+
+        private void tb2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[1].Text);
+                txtbox[1].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[2].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[0].Focus();
+        }
+
+        private void tb3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[2].Text);
+                txtbox[2].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[3].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[1].Focus();
+        }
+
+        private void tb4_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[3].Text);
+                txtbox[3].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[4].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[2].Focus();
+        }
+
+        private void tb5_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[4].Text);
+                txtbox[4].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[5].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[3].Focus();
+        }
+
+        private void tb6_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[5].Text);
+                txtbox[5].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[6].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[4].Focus();
+        }
+
+        private void tb7_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[6].Text);
+                txtbox[6].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Right)
+                txtbox[7].Focus();
+            else if (e.Key == Key.Left)
+                txtbox[5].Focus();
+        }
+
+        private void tb8_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                changeValues(txtbox[7].Text);
+                txtbox[7].Text = tempVal.ToString();
+            }
+
+            if (e.Key == Key.Left)
+                txtbox[6].Focus();
+        }
+        private void btnCheck_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                checkAns();
+        }
+        #endregion
+        private void btnCheck_Click(object sender, RoutedEventArgs e)
+        {
+            checkAns();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AllWindows.isStartGame = false;
+            _timer.Stop();
+        }
+    }
+}
