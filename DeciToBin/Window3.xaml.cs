@@ -22,6 +22,11 @@ namespace DeciToBin
         public Window3()
         {
             InitializeComponent();
+            readFromCSV("Leaderboard.csv");
+        }
+        private void readFromCSV(string fileName)
+        {
+
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

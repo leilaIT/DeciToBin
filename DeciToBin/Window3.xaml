@@ -10,6 +10,19 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dtb blank wp.png"/>
         </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="425" Source="/3-removebg-preview.png" Margin="217,-20,0,0" MinWidth="228"/>
+        <TextBlock x:Name="tblGameOver" HorizontalAlignment="Center" Height="50" MinHeight="31" Margin="0,66,0,0" TextWrapping="Wrap" Text="Top Players" VerticalAlignment="Top" Width="254" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="30" MinWidth="136" TextAlignment="Center"/>
+        <Border CornerRadius="10" Margin="159,189,173,85" BorderBrush="#FFA2A8DC" BorderThickness="3,3,3,3" >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF663B71" Offset="1"/>
+                    <GradientStop Color="#FFBDB5C7" Offset="0.511"/>
+                    <GradientStop Color="#FF8590D0" Offset="0"/>
+                    <GradientStop Color="#FFA694AF" Offset="0.706"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <ListBox HorizontalAlignment="Left" Height="191" Margin="164,197,0,0" VerticalAlignment="Top" Width="501" Background="{x:Null}" Foreground="#FF5D155D" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>

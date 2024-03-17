@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace DeciToBin
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> lbInfo = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -56,6 +58,15 @@ namespace DeciToBin
                 AllWindows._leaderBoard = new Window3();
                 AllWindows.isLeaderBoard = true;
                 AllWindows._leaderBoard.Show();
+            }
+        }
+        public void getLeaderboardInfo(string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(fileName, true))
+            {
+                sw.WriteLine($"{AllWindows._gameOver.name}, " +
+                             $"Total Rounds Finished: {AllWindows._startGame.roundCount}, " +
+                             $"Completion Time of Round: {AllWindows._startGame.roundTime}");
             }
         }
     }

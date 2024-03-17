@@ -27,10 +27,10 @@ namespace DeciToBin
         private TextBox[] txtbox = new TextBox[] { };
         private int deciNum = 0;
         private int tempVal = 0;
-        private int roundTime = 0;
+        public int roundTime = 0;
         private int maxTime = 3; //time
         private int reduction = 0;
-        private int roundCount = 0;
+        public int roundCount = 0;
         private bool isCorrect = false;
         public Window1()
         {
@@ -93,12 +93,13 @@ namespace DeciToBin
         {
             lblTimer.Content = roundTime;
             roundTime--;
-            if (roundTime < 0)
+            if (roundTime < -1)
             {
                 _timer.Stop();
                 AllWindows._gameOver = new Window4();
                 AllWindows.isGameOver = true;
                 AllWindows._gameOver.Show();
+                roundTime = 0;
                 this.Close();
                 AllWindows._gameOver.isSelected = true;
             }

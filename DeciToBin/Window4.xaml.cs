@@ -38,6 +38,7 @@ namespace DeciToBin
             if(e.Key == Key.Enter)
             {
                 name = tbNameInput.Text;
+                AllWindows._mainwindowMenu.getLeaderboardInfo("Leaderboard.csv");
             }
         }
         private void tbNameInput_SelectionChanged(object sender, RoutedEventArgs e)
