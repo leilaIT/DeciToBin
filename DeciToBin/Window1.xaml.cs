@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,7 +28,7 @@ namespace DeciToBin
         private int deciNum = 0;
         private int tempVal = 0;
         private int roundTime = 0;
-        private int maxTime = 60;
+        private int maxTime = 3; //time
         private int reduction = 0;
         private int roundCount = 0;
         private bool isCorrect = false;
@@ -38,6 +39,7 @@ namespace DeciToBin
             _timer = new DispatcherTimer();
             _timer.Tick += _timer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
             roundTime = maxTime;
             lblTimer.Visibility = Visibility.Visible;
             gameStart();
@@ -94,14 +96,17 @@ namespace DeciToBin
             if (roundTime < 0)
             {
                 _timer.Stop();
-                MessageBox.Show("Game over! \nYou ran out of time.");
+                AllWindows._gameOver = new Window4();
+                AllWindows.isGameOver = true;
+                AllWindows._gameOver.Show();
                 this.Close();
+                AllWindows._gameOver.isSelected = true;
             }
         }
         private void timerReduction()
         {
-            reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
-            maxTime = maxTime - reduction;
+            if(roundCount < 11)
+                maxTime = maxTime - reduction;
             roundTime = maxTime;
         }
         #endregion

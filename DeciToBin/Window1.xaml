@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeciToBin"
         mc:Ignorable="d"
-        Title="8-Bit Binary Game" Height="450" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="500" MinWidth="850" Closing="Window_Closing">
+        Title="8-Bit Binary Game" Height="450" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="550" MinWidth="850" Closing="Window_Closing">
     <Window.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
@@ -24,18 +24,18 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" CornerRadius="5" SnapsToDevicePixels="True" BorderBrush="#FF433546" BorderThickness="3,3,3,3" Background="#FFE2DFE6">
+                        <Border x:Name="answerBorder" CornerRadius="5" SnapsToDevicePixels="True" BorderBrush="#FF433546" BorderThickness="3,3,3,3" Background="#FFA2A8DC">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                <Setter Property="Opacity" TargetName="answerBorder" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="answerBorder" Value="{StaticResource TextBox.MouseOver.Border}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="answerBorder" Value="{StaticResource TextBox.Focus.Border}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -61,8 +61,8 @@
         <Image HorizontalAlignment="Left" Height="99" Margin="616,346,0,0" VerticalAlignment="Top" Width="211" Source="/arrow_pic.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="-16,13,0,0" VerticalAlignment="Top" Width="362" Source="/2-removebg-preview.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="483,13,0,0" VerticalAlignment="Top" Width="362" Source="/2-removebg-preview.png" Stretch="Fill"/>
-        <TextBlock x:Name="tblDecimal" HorizontalAlignment="Left" Height="53" Margin="72,76,0,0" TextWrapping="Wrap" Text="num" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="#FF6A4C71"/>
-        <TextBox x:Name="tb1" HorizontalAlignment="Left" Height="53" Margin="85,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb1_input" KeyUp="tb1_KeyUp" TextAlignment="Center" IsReadOnly="True" SelectionOpacity="6" BorderThickness="4,4,4,4"/>
+        <TextBlock x:Name="tblDecimal" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="72,76,0,0" TextWrapping="Wrap" Text="num" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="#FF6A4C71"/>
+        <TextBox x:Name="tb1" HorizontalAlignment="Left" Height="53" Margin="85,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb1_input" KeyUp="tb1_KeyUp" TextAlignment="Center" IsReadOnly="True" SelectionOpacity="6" BorderThickness="4,4,4,4" SelectionBrush="#FF854BB7"/>
         <TextBox x:Name="tb2" HorizontalAlignment="Left" Height="53" Margin="165,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb2_input" KeyUp="tb2_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
         <TextBox x:Name="tb3" HorizontalAlignment="Left" Height="53" Margin="244,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb3_input" KeyUp="tb3_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
         <TextBox x:Name="tb4" HorizontalAlignment="Left" Height="53" Margin="324,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb4_input" KeyUp="tb4_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
@@ -70,16 +70,22 @@
         <TextBox x:Name="tb6" HorizontalAlignment="Left" Height="53" Margin="515,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb6_input" KeyUp="tb6_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
         <TextBox x:Name="tb7" HorizontalAlignment="Left" Height="53" Margin="594,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb7_input" KeyUp="tb7_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
         <TextBox x:Name="tb8" HorizontalAlignment="Left" Height="53" Margin="674,279,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" FontSize="36" TextChanged="tb8_input" KeyUp="tb8_KeyUp" TextAlignment="Center" IsReadOnly="True" BorderThickness="4,4,4,4"/>
-        <TextBlock x:Name="tbl128" HorizontalAlignment="Left" Height="33" Margin="91,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="128" FontFamily="Dunkin"/></TextBlock>
-        <TextBlock x:Name="tbl64" HorizontalAlignment="Left" Height="33" Margin="171,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="64" FontFamily="Dunkin"/></TextBlock>
-        <TextBlock x:Name="tbl32" HorizontalAlignment="Left" Height="33" Margin="250,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="32" FontFamily="Dunkin"/></TextBlock>
-        <TextBlock x:Name="tbl16" HorizontalAlignment="Left" Height="33" Margin="330,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="16" FontFamily="Dunkin"/></TextBlock>
-        <TextBlock x:Name="tbl8" HorizontalAlignment="Left" Height="33" Margin="441,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" Text="8" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
-        <TextBlock x:Name="tbl4" HorizontalAlignment="Left" Height="33" Margin="521,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" Text="4" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
-        <TextBlock x:Name="tbl2" HorizontalAlignment="Left" Height="33" Margin="600,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" Text="2" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
-        <TextBlock x:Name="tbl1" HorizontalAlignment="Left" Height="33" Margin="680,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="20" Text="1" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
+        <TextBlock x:Name="tbl128" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="91,225,0,226" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="128" FontFamily="Dunkin"/></TextBlock>
+        <TextBlock x:Name="tbl64" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="171,225,0,226" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="64" FontFamily="Dunkin"/></TextBlock>
+        <TextBlock x:Name="tbl32" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="250,225,0,226" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="32" FontFamily="Dunkin"/></TextBlock>
+        <TextBlock x:Name="tbl16" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="330,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF6A4C70"><Run Language="en-ph" Text="16" FontFamily="Dunkin"/></TextBlock>
+        <TextBlock x:Name="tbl8" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="441,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="8" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
+        <TextBlock x:Name="tbl4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="521,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="4" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
+        <TextBlock x:Name="tbl2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="600,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="2" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
+        <TextBlock x:Name="tbl1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="680,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="1" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
         <Label x:Name="lblTimer" Content="00" HorizontalAlignment="Left" Margin="638,55,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Visibility="Visible" Foreground="#FF6A4C71"/>
-        <TextBlock x:Name="tblRound" HorizontalAlignment="Left" Height="77" Margin="292,82,0,0" TextWrapping="Wrap" Text="Round" VerticalAlignment="Top" Width="201" TextAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C71">
+        <TextBlock x:Name="tblRound" HorizontalAlignment="Left" Height="77" MinHeight="77" Margin="292,82,0,0" TextWrapping="Wrap" Text="Round" VerticalAlignment="Top" Width="201" MinWidth="201" TextAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Dunkin">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF381C3E" Offset="0.248"/>
+                    <GradientStop Color="#FF926C9C" Offset="0.736"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
         </TextBlock>
         <Button x:Name="btnCheck" Content="---" HorizontalAlignment="Left" Height="38" Margin="676,377,0,0" VerticalAlignment="Top" Width="93" FontSize="22" FontWeight="Bold" KeyUp="btnCheck_KeyUp" Click="btnCheck_Click" Background="{x:Null}" BorderBrush="#FF6A4C70" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}">
             <Button.RenderTransform>
@@ -91,8 +97,8 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <TextBlock x:Name="tblDecimalLabel" HorizontalAlignment="Left" Height="53" Margin="73,112,0,0" TextWrapping="Wrap" Text="Decimal" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
-        <TextBlock x:Name="tblTimerLabel" HorizontalAlignment="Left" Height="53" Margin="572,112,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
+        <TextBlock x:Name="tblDecimalLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="73,112,0,0" TextWrapping="Wrap" Text="Decimal" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
+        <TextBlock x:Name="tblTimerLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="572,112,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
         <MediaElement x:Name="soundCorrect" Width="100" Margin="3,385,697,4" Source="D:\Leila\Stuff\School\Prog\DeciToBinaryGame\DeciToBinaryGame\DeciToBinaryGame\correct.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
         <MediaElement x:Name="soundWrong" Width="100" Margin="137,385,563,4" Source="D:\Leila\Stuff\School\Prog\DeciToBinaryGame\DeciToBinaryGame\DeciToBinaryGame\wrong.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"
 />
