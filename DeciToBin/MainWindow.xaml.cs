@@ -21,7 +21,6 @@ namespace DeciToBin
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<string> lbInfo = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,11 +32,11 @@ namespace DeciToBin
         }
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (!AllWindows.isStartGame)
+            if (!AllWindows.isGameMode)
             {
-                AllWindows._startGame = new Window1();
-                AllWindows.isStartGame = true;
-                AllWindows._startGame.Show();
+                AllWindows._gameMode = new Window5();
+                AllWindows.isGameMode = true;
+                AllWindows._gameMode.Show();
             }
         }
 
@@ -58,15 +57,6 @@ namespace DeciToBin
                 AllWindows._leaderBoard = new Window3();
                 AllWindows.isLeaderBoard = true;
                 AllWindows._leaderBoard.Show();
-            }
-        }
-        public void getLeaderboardInfo(string fileName)
-        {
-            using (StreamWriter sw = new StreamWriter(fileName, true))
-            {
-                sw.WriteLine($"{AllWindows._gameOver.name}, " +
-                             $"Total Rounds Finished: {AllWindows._startGame.roundCount}, " +
-                             $"Completion Time of Round: {AllWindows._startGame.roundTime}");
             }
         }
     }

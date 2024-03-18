@@ -99,8 +99,7 @@
         </Button>
         <TextBlock x:Name="tblDecimalLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="73,112,0,0" TextWrapping="Wrap" Text="Decimal" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
         <TextBlock x:Name="tblTimerLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="572,112,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
-        <MediaElement x:Name="soundCorrect" Width="100" Margin="3,385,697,4" Source="D:\Leila\Stuff\School\Prog\DeciToBinaryGame\DeciToBinaryGame\DeciToBinaryGame\correct.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
-        <MediaElement x:Name="soundWrong" Width="100" Margin="137,385,563,4" Source="D:\Leila\Stuff\School\Prog\DeciToBinaryGame\DeciToBinaryGame\DeciToBinaryGame\wrong.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"
-/>
+        <MediaElement x:Name="soundCorrect" Width="100" Margin="3,385,697,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\correct.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="soundWrong" Width="100" Margin="137,385,563,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\wrong.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
     </Grid>
 </Window>

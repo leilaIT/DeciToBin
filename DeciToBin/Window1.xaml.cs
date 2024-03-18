@@ -24,15 +24,16 @@ namespace DeciToBin
         private DispatcherTimer _timer = null;
         private Stack<string> bits = new Stack<string>();
         private Random rnd = new Random();
-        private TextBox[] txtbox = new TextBox[] { };
+        public TextBox[] txtbox = new TextBox[] { };
         private int deciNum = 0;
         private int tempVal = 0;
-        public int roundTime = 0;
-        private int maxTime = 3; //time
+        private int roundTime = 0;
+        private int maxNum = 0;
+        private int maxTime = 0;
         private int reduction = 0;
         public int roundCount = 0;
         private bool isCorrect = false;
-        public Window1()
+        public Window1(int time, int maxRange)
         {
             InitializeComponent();
             txtbox = new TextBox[] { tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8 };
@@ -40,6 +41,8 @@ namespace DeciToBin
             _timer.Tick += _timer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
             reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
+            maxTime = time;
+            maxNum = maxRange;
             roundTime = maxTime;
             lblTimer.Visibility = Visibility.Visible;
             gameStart();
@@ -55,7 +58,6 @@ namespace DeciToBin
             for (int i = 0; i < txtbox.Length; i++)
                 txtbox[i].Text = "0";
             _timer.Start();
-            tb1.Focus();
         }
         private void checkAns()
         {
@@ -92,7 +94,7 @@ namespace DeciToBin
         private void _timer_Tick(object sender, EventArgs e)
         {
             lblTimer.Content = roundTime;
-            roundTime--;
+                roundTime--;
             if (roundTime < -1)
             {
                 _timer.Stop();
@@ -115,7 +117,7 @@ namespace DeciToBin
         #region deci_to_bin
         private void generateRandom()
         {
-            deciNum = rnd.Next(0, 41);
+            deciNum = rnd.Next(0, maxNum) + 1;
             tblDecimal.Text = deciNum.ToString();
         }
         private void convertDecToBinary()
@@ -297,11 +299,14 @@ namespace DeciToBin
 
             if (e.Key == Key.Left)
                 txtbox[6].Focus();
+
+            if (e.Key == Key.Down)
+                btnCheck.Focus();
         }
         private void btnCheck_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-                checkAns();
+            if (e.Key == Key.Right)
+                tb7.Focus();
         }
         #endregion
         private void btnCheck_Click(object sender, RoutedEventArgs e)

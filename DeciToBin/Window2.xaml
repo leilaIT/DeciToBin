@@ -5,11 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeciToBin"
         mc:Ignorable="d"
-        Title="How To Play" Height="450" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="500" MinWidth="850" Closing="Window_Closing">
+        Title="How To Play" Height="550" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="550" MinWidth="850" Closing="Window_Closing">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/dtb blank wp.png"/>
+            <ImageBrush ImageSource="/howtoplaygamepng.png">
+                <ImageBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform Y="0"/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
         </Grid.Background>
+        <Image HorizontalAlignment="Center" Height="216" VerticalAlignment="Top" Width="472" Source="/3-removebg-preview.png" Margin="0,-8,0,0" MinWidth="228"/>
+        <TextBlock x:Name="tblGameMode" HorizontalAlignment="Center" Height="48" MinHeight="31" Margin="0,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="26" MinWidth="136" TextAlignment="Center" Text="How to Play?"/>
+        <TextBlock x:Name="tblEasy" HorizontalAlignment="Left" Height="166" MinHeight="90" Margin="55,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" FontFamily="Dunkin" Foreground="#FFD7C7EC" MinWidth="136"><Run Text="1."/><Run Language="en-ph" Text=" T"/><Run Text="o convert "/><Run Language="en-ph" Text="from "/><Run Text="decimal to binary, place a value of &quot;1&quot; in the "/><Run Language="en-ph" Text="correct "/><Run Text="fields that adds up to the given number. (ex. place &quot;1&quot; in fields 4 and 2 to get the binary of decimal number 5. "/><Run Language="en-ph" Text="T"/><Run Text="he answer would be 0000 0101)."/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="tblEasy_Copy" HorizontalAlignment="Left" Height="166" MinHeight="90" Margin="469,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" FontFamily="Dunkin" Foreground="#FFD7C7EC" MinWidth="136" FontSize="15"><Run Text="CONTROLS:"/><LineBreak/><Run Text="Tab/Left and RIght buttons"/><LineBreak/><Run Text="- Switch between fields."/><LineBreak/><Run/><LineBreak/><Run Text="Enter"/><Run Text="/Click "/><Run Language="en-ph" Text="next button"/><LineBreak/><Run Text="- "/><Run Text="Submit"/><Run Text=" answer"/></TextBlock>
 
     </Grid>
 </Window>
