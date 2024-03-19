@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeciToBin"
         mc:Ignorable="d"
-        Title="Window5" Height="500" Width="810">
+        Title="Window5" Height="500" Width="810" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

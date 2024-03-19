@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeciToBin"
         mc:Ignorable="d"
-                Title="8-Bit Binary Game" Height="450" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="500" MinWidth="850">
+                Title="8-Bit Binary Game" Height="450" Width="800" WindowState="Normal" ResizeMode="CanResize" MinHeight="500" MinWidth="850" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

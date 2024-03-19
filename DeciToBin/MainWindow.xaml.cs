@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -52,12 +54,41 @@ namespace DeciToBin
 
         private void btnLB_Click(object sender, RoutedEventArgs e)
         {
+            openLeaderboard(2);
+        }
+        public void openLeaderboard(int LBoption)
+        {
             if (!AllWindows.isLeaderBoard)
             {
                 AllWindows._leaderBoard = new Window3();
                 AllWindows.isLeaderBoard = true;
-                AllWindows._leaderBoard.Show();
+                if(LBoption == 1)
+                    AllWindows._leaderBoard.getLeaderboardInfo("Leaderboard.csv");
+                else
+                {
+                    AllWindows._leaderBoard.readFromCSV("Leaderboard.csv");
+                    AllWindows._leaderBoard.Show();
+                }
             }
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            closeUnnecessary();
+            AllWindows.ismwMenu = false;
+
+        }
+        public void closeUnnecessary()
+        {
+            if (AllWindows._startGame != null)
+                AllWindows._startGame.Close();
+            if (AllWindows._howToPlay != null)
+                AllWindows._howToPlay.Close();
+            if (AllWindows._leaderBoard != null)
+                AllWindows._leaderBoard.Close();
+            if (AllWindows._gameOver != null)
+                AllWindows._gameOver.Close();
+            if (AllWindows._gameMode != null)
+                AllWindows._gameMode.Close();
         }
     }
 }

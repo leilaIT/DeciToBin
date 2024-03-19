@@ -20,11 +20,12 @@ namespace DeciToBin
     /// </summary>
     public partial class Window3 : Window
     {
-        private string[] tempArr = new string[] { };
         private List<string[]> sortedlb = new List<string[]>();
         public Window3()
         {
             InitializeComponent();
+            if (Application.Current.Windows.Count > 2)
+                AllWindows._mainwindowMenu.closeUnnecessary();
             readFromCSV("Leaderboard.csv");
         }
         public void getLeaderboardInfo(string fileName)
@@ -32,12 +33,14 @@ namespace DeciToBin
             using (StreamWriter sw = new StreamWriter(fileName, true))
             {
                 sw.WriteLine($"{AllWindows._gameOver.name}, " +
-                             $"{AllWindows._startGame.roundCount}");
+                             $"{AllWindows._startGame.roundCount}, " +
+                             $"{AllWindows._startGame.playTimeMin}, " +
+                             $"{AllWindows._startGame.playTimeSec}");
             }
         }
-        private void readFromCSV(string fileName)
+        public void readFromCSV(string fileName)
         {
-            string[] tempSort = new string[] { };
+            string[] tempArr = new string[] { };
             string tempWord = "";
             using (StreamReader sr = new StreamReader(fileName))
             {
@@ -57,30 +60,61 @@ namespace DeciToBin
                     }
                     sortedlb.Add(tempArr);
                 }
-                for(int x = 0; x < sortedlb.Count; x++)
+                sortInfo();
+            }
+        }
+        private void sortInfo()
+        {
+            string[] tempSort = new string[] { };
+
+            for (int x = 0; x < sortedlb.Count; x++)
+            {
+                for (int y = 0; y < sortedlb.Count - 1; y++)
                 {
-                    for(int y = 0; y < sortedlb.Count - 1; y++)
+                    if (int.Parse(sortedlb[y][1]) < int.Parse(sortedlb[y + 1][1]))
+                        sort(tempSort, y);
+                }
+            }
+
+            for (int x = 0; x < sortedlb.Count; x++)
+            {
+                for (int y = 0; y < sortedlb.Count - 1; y++)
+                {
+                    if (int.Parse(sortedlb[y][1]) == int.Parse(sortedlb[y + 1][1]))
                     {
-                        if (int.Parse(sortedlb[y][1]) < int.Parse(sortedlb[y + 1][1]))
+                        if (int.Parse(sortedlb[y][2]) == int.Parse(sortedlb[y + 1][2]))
                         {
-                            tempSort = sortedlb[y];
-                            sortedlb[y] = sortedlb[y + 1];
-                            sortedlb[y + 1] = tempSort;
+                            if (int.Parse(sortedlb[y][3]) < int.Parse(sortedlb[y + 1][3]))
+                                sort(tempSort, y);
+                        }
+                        else
+                        {
+                            if (int.Parse(sortedlb[y][2]) < int.Parse(sortedlb[y + 1][2]))
+                            sort(tempSort, y);
                         }
                     }
                 }
-
-                for(int x = 0; x < sortedlb.Count; x++)
-                {
-                    if (lbPlayer.Items.Count < 10 && lbScore.Items.Count < 10)
-                    {
-                        lbPlayer.Items.Add(sortedlb[x][0]);
-                        lbScore.Items.Add(sortedlb[x][1]);
-                    }
-                    else
-                        break;
-                }
             }
+
+            for (int x = 0; x < sortedlb.Count; x++)
+            {
+                if (lbPlayer.Items.Count < 10 && lbScore.Items.Count < 10)
+                {
+                    lbPlayer.Items.Add(sortedlb[x][0]);
+                    lbScore.Items.Add(sortedlb[x][1]);
+                    lbPlayTime.Items.Add($"{sortedlb[x][2]}:{sortedlb[x][3]}");
+                }
+                else
+                    break;
+            }
+        }
+        private List<string[]> sort(string[] tempSort, int y)
+        {
+            tempSort = sortedlb[y];
+            sortedlb[y] = sortedlb[y + 1];
+            sortedlb[y + 1] = tempSort;
+
+            return sortedlb;
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

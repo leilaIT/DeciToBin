@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace DeciToBin
     public partial class Window1 : Window
     {
         private DispatcherTimer _timer = null;
+        public DispatcherTimer _playTime = null;
         private Stack<string> bits = new Stack<string>();
         private Random rnd = new Random();
         public TextBox[] txtbox = new TextBox[] { };
@@ -30,21 +32,31 @@ namespace DeciToBin
         private int roundTime = 0;
         private int maxNum = 0;
         private int maxTime = 0;
+        public int playTimeMin = 0;
+        public int playTimeSec = 0;
         private int reduction = 0;
         public int roundCount = 0;
-        private bool isCorrect = false;
         public Window1(int time, int maxRange)
         {
             InitializeComponent();
+           
+            if(Application.Current.Windows.Count > 2)
+                AllWindows._mainwindowMenu.closeUnnecessary();
+
             txtbox = new TextBox[] { tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8 };
+            
             _timer = new DispatcherTimer();
             _timer.Tick += _timer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
-            reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
-            maxTime = time;
+            
+            _playTime = new DispatcherTimer();
+            _playTime.Tick += _playTime_Tick;
+            _playTime.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            
             maxNum = maxRange;
-            roundTime = maxTime;
-            lblTimer.Visibility = Visibility.Visible;
+            maxTime = time;
+            roundTime = time;
+            reduction = (int)Math.Ceiling(maxTime * 0.066); //reduc each round
             gameStart();
         }
         #region game_functions
@@ -57,11 +69,12 @@ namespace DeciToBin
             convertDecToBinary();
             for (int i = 0; i < txtbox.Length; i++)
                 txtbox[i].Text = "0";
+            _playTime.Start();
             _timer.Start();
         }
         private void checkAns()
         {
-            isCorrect = true;
+            bool isCorrect = true;
             string[] ansArr = new string[] { };
             string answer = "";
 
@@ -91,13 +104,43 @@ namespace DeciToBin
         #endregion
 
         #region timer_stuff
+        private void _playTime_Tick(object sender, EventArgs e)
+        {
+            playTimeSec++;
+
+            if(playTimeSec > 59)
+            {
+                playTimeMin++;
+                playTimeSec = 0;
+            }
+
+            if (roundTime < -1)
+            {
+                _playTime.Stop();
+            }
+        }
         private void _timer_Tick(object sender, EventArgs e)
         {
             lblTimer.Content = roundTime;
-                roundTime--;
-            if (roundTime < -1)
+
+            if(roundTime > 10)
             {
+                soundTick.Position = new TimeSpan(0, 0, 0);
+                soundTick.Play();
+            }
+            else
+            {
+                sound10left.Play();
+            }
+            roundTime--;
+
+            if (roundTime < 0)
+            {
+                sound10left.Stop();
+                soundTimesup.Play();
                 _timer.Stop();
+                sound10left.Position = new TimeSpan(0, 0, 0);
+                soundTimesup.Position = new TimeSpan(0, 0, 0);
                 AllWindows._gameOver = new Window4();
                 AllWindows.isGameOver = true;
                 AllWindows._gameOver.Show();
@@ -203,6 +246,8 @@ namespace DeciToBin
 
             if (e.Key == Key.Right)
                 txtbox[1].Focus();
+            if (e.Key == Key.Left)
+                btnCheck.Focus();
         }
 
         private void tb2_KeyUp(object sender, KeyEventArgs e)
@@ -302,11 +347,6 @@ namespace DeciToBin
 
             if (e.Key == Key.Down)
                 btnCheck.Focus();
-        }
-        private void btnCheck_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Right)
-                tb7.Focus();
         }
         #endregion
         private void btnCheck_Click(object sender, RoutedEventArgs e)

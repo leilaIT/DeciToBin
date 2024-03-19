@@ -22,6 +22,8 @@ namespace DeciToBin
         public Window5()
         {
             InitializeComponent();
+            if (Application.Current.Windows.Count > 2)
+                AllWindows._mainwindowMenu.closeUnnecessary();
         }
         private void btnEasy_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +58,10 @@ namespace DeciToBin
                 AllWindows.isStartGame = true;
                 AllWindows._startGame.Show();
             }
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AllWindows.isGameMode = false;
         }
     }
 }

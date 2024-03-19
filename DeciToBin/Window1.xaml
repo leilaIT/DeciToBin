@@ -78,8 +78,8 @@
         <TextBlock x:Name="tbl4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="521,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="4" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
         <TextBlock x:Name="tbl2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="600,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="2" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
         <TextBlock x:Name="tbl1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="33" MinHeight="33" Margin="680,226,0,225" TextWrapping="Wrap" Width="52" MinWidth="52" TextAlignment="Center" FontSize="20" Text="1" FontWeight="Bold" FontFamily="Dunkin" Foreground="#FF6A4C70"/>
-        <Label x:Name="lblTimer" Content="00" HorizontalAlignment="Left" Margin="638,55,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Visibility="Visible" Foreground="#FF6A4C71"/>
-        <TextBlock x:Name="tblRound" HorizontalAlignment="Left" Height="77" MinHeight="77" Margin="292,82,0,0" TextWrapping="Wrap" Text="Round" VerticalAlignment="Top" Width="201" MinWidth="201" TextAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Dunkin">
+        <Label x:Name="lblTimer" Content="00" HorizontalAlignment="Left" Margin="638,55,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Foreground="#FF6A4C71"/>
+        <TextBlock x:Name="tblRound" HorizontalAlignment="Left" Height="77" MinHeight="77" Margin="324,88,0,0" TextWrapping="Wrap" Text="Round" VerticalAlignment="Top" Width="317" MinWidth="201" FontSize="36" FontWeight="Bold" FontFamily="Dunkin">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF381C3E" Offset="0.248"/>
@@ -87,7 +87,7 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Button x:Name="btnCheck" Content="---" HorizontalAlignment="Left" Height="38" Margin="676,377,0,0" VerticalAlignment="Top" Width="93" FontSize="22" FontWeight="Bold" KeyUp="btnCheck_KeyUp" Click="btnCheck_Click" Background="{x:Null}" BorderBrush="#FF6A4C70" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}">
+        <Button x:Name="btnCheck" Content="---" HorizontalAlignment="Left" Height="38" Margin="676,377,0,0" VerticalAlignment="Top" Width="93" FontSize="22" FontWeight="Bold" Click="btnCheck_Click" Background="{x:Null}" BorderBrush="#FF6A4C70" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -99,7 +99,11 @@
         </Button>
         <TextBlock x:Name="tblDecimalLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="73,112,0,0" TextWrapping="Wrap" Text="Decimal" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
         <TextBlock x:Name="tblTimerLabel" HorizontalAlignment="Left" Height="53" MinHeight="53" Margin="572,112,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="200" MinWidth="200" TextAlignment="Center" FontSize="22" FontFamily="Dunkin" Foreground="#FF5D155D"/>
-        <MediaElement x:Name="soundCorrect" Width="100" Margin="3,385,697,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\correct.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
-        <MediaElement x:Name="soundWrong" Width="100" Margin="137,385,563,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\wrong.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="soundCorrect" Width="100" Margin="2,466,748,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\correct.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="soundWrong" Width="100" Margin="115,480,635,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\wrong.wav" Volume="1" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="soundTick" Width="100" Margin="316,481,434,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\tickSound.wav" Volume="0.5" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="sound10left" Width="100" Margin="226,481,524,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\10secleft.wav" Volume="0.5" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="soundTimesup" Width="100" Margin="417,481,333,4" Source="D:\Leila\Stuff\School\Prog\DeciToBin\DeciToBin\timesupmp4.wav" Volume="0.5" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+
     </Grid>
 </Window>

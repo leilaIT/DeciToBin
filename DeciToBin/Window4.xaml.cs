@@ -24,6 +24,8 @@ namespace DeciToBin
         public Window4()
         {
             InitializeComponent();
+            if (Application.Current.Windows.Count > 2)
+                AllWindows._mainwindowMenu.closeUnnecessary();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -38,9 +40,7 @@ namespace DeciToBin
             if(e.Key == Key.Enter)
             {
                 name = tbNameInput.Text;
-                AllWindows._leaderBoard = new Window3();
-                AllWindows.isLeaderBoard = true;
-                AllWindows._leaderBoard.getLeaderboardInfo("Leaderboard.csv");
+                AllWindows._mainwindowMenu.openLeaderboard(1);
                 this.Close();
             }
         }
