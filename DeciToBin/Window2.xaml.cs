@@ -22,6 +22,8 @@ namespace DeciToBin
         public Window2()
         {
             InitializeComponent();
+            if (Application.Current.Windows.Count > 2)
+                AllWindows._mainwindowMenu.closeUnnecessary();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
