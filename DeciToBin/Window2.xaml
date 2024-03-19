@@ -22,10 +22,32 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
+        <Border CornerRadius="10" Margin="445,335,63,37" BorderBrush="#FFA2A8DC" BorderThickness="3,3,3,3" >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF663B71" Offset="1"/>
+                    <GradientStop Color="#FFBDB5C7" Offset="0.511"/>
+                    <GradientStop Color="#FF8590D0" Offset="0"/>
+                    <GradientStop Color="#FFA694AF" Offset="0.706"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Border CornerRadius="10" Margin="52,335,437,37" BorderBrush="#FFA2A8DC" BorderThickness="3,3,3,3" >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF663B71" Offset="1"/>
+                    <GradientStop Color="#FFBDB5C7" Offset="0.511"/>
+                    <GradientStop Color="#FF8590D0" Offset="0"/>
+                    <GradientStop Color="#FFA694AF" Offset="0.706"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
         <Image HorizontalAlignment="Center" Height="216" VerticalAlignment="Top" Width="472" Source="/3-removebg-preview.png" Margin="0,-8,0,0" MinWidth="228"/>
         <TextBlock x:Name="tblGameMode" HorizontalAlignment="Center" Height="48" MinHeight="31" Margin="0,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="26" MinWidth="136" TextAlignment="Center" Text="How to Play?"/>
-        <TextBlock x:Name="tblEasy" HorizontalAlignment="Left" Height="166" MinHeight="90" Margin="55,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" FontFamily="Dunkin" Foreground="#FFD7C7EC" MinWidth="136"><Run Text="1."/><Run Language="en-ph" Text=" T"/><Run Text="o convert "/><Run Language="en-ph" Text="from "/><Run Text="decimal to binary, place a value of &quot;1&quot; in the "/><Run Language="en-ph" Text="correct "/><Run Text="fields that adds up to the given number. (ex. place &quot;1&quot; in fields 4 and 2 to get the binary of decimal number 5. "/><Run Language="en-ph" Text="T"/><Run Text="he answer would be 0000 0101)."/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="tblEasy_Copy" HorizontalAlignment="Left" Height="166" MinHeight="90" Margin="469,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" FontFamily="Dunkin" Foreground="#FFD7C7EC" MinWidth="136" FontSize="15"><Run Text="CONTROLS:"/><LineBreak/><Run Text="Tab/Left and RIght buttons"/><LineBreak/><Run Text="- Switch between fields."/><LineBreak/><Run/><LineBreak/><Run Text="Enter"/><Run Text="/Click "/><Run Language="en-ph" Text="next button"/><LineBreak/><Run Text="- "/><Run Text="Submit"/><Run Text=" answer"/></TextBlock>
+        <TextBlock x:Name="tblEasy" HorizontalAlignment="Left" Height="122" MinHeight="90" Margin="64,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" FontFamily="Dunkin" Foreground="#FF391E40" MinWidth="136"><Run Text="1."/><Run Text=" T"/><Run Text="o convert "/><Run Text="from "/><Run Text="decimal to binary, place a value of &quot;1&quot; in the "/><Run Language="en-ph" Text="correct "/><Run Text="fields that add up to the given "/><Run Language="en-ph" Text="decimal "/><Run Text="number. (ex. "/><Run Language="en-ph" Text="to convert 5 to binary, "/><Run Text="place &quot;1&quot; in fields 4 and "/><Run Language="en-ph" Text="1"/><Run Text=" "/><Run Language="en-ph" Text="because 4 + 1 = 5, "/><LineBreak/><Run Language="en-ph" Text="hence t"/><Run Text="he "/><Run Language="en-ph" Text="final "/><Run Text="answer"/><Run Language="en-ph" Text=": "/><Run Text="0000 0101)."/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="tblEasy_Copy" HorizontalAlignment="Left" Height="131" MinHeight="90" Margin="495,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" FontFamily="Dunkin" Foreground="#FF391E40" MinWidth="136" FontSize="14"><Run Text="CONTROLS:"/><LineBreak/><Run Text="Tab/Left and RIght buttons"/><LineBreak/><Run Text="- Switch between fields."/><LineBreak/><Run/><LineBreak/><Run Text="Enter"/><Run Text="/Click "/><Run Language="en-ph" Text="next button"/><LineBreak/><Run Text="- "/><Run Text="Submit"/><Run Text=" answer"/></TextBlock>
 
     </Grid>
 </Window>

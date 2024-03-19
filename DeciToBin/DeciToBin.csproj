@@ -145,8 +145,10 @@
     <Content Include="10secleft.wav" />
     <Content Include="correct.wav" />
     <Resource Include="howtoplaygamepng.png" />
+    <Resource Include="game_over.png" />
     <Content Include="tickSound.wav" />
     <Content Include="timesupmp4.wav" />
+    <Resource Include="trophy_pic.png" />
     <Content Include="wrong.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

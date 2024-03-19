@@ -26,7 +26,6 @@ namespace DeciToBin
             InitializeComponent();
             if (Application.Current.Windows.Count > 2)
                 AllWindows._mainwindowMenu.closeUnnecessary();
-            readFromCSV("Leaderboard.csv");
         }
         public void getLeaderboardInfo(string fileName)
         {
@@ -98,7 +97,7 @@ namespace DeciToBin
 
             for (int x = 0; x < sortedlb.Count; x++)
             {
-                if (lbPlayer.Items.Count < 10 && lbScore.Items.Count < 10)
+                if (lbPlayer.Items.Count < 10 && lbScore.Items.Count < 10 && lbPlayTime.Items.Count < 10)
                 {
                     lbPlayer.Items.Add(sortedlb[x][0]);
                     lbScore.Items.Add(sortedlb[x][1]);

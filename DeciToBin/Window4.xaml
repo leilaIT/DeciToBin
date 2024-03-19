@@ -26,5 +26,7 @@
         <TextBlock x:Name="tblGameOver" HorizontalAlignment="Center" Height="31" MinHeight="31" Margin="0,48,0,0" TextWrapping="Wrap" Text="Game Over!" VerticalAlignment="Top" Width="136" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="18" MinWidth="136"/>
         <TextBox x:Name="tbNameInput" HorizontalAlignment="Center" Height="25" MinHeight="25" Margin="0,248,0,0" TextWrapping="Wrap" Text="Input Name" VerticalAlignment="Top" Width="137" FontSize="15" TextChanged="tbName_input" TextAlignment="Left" SelectionOpacity="6" BorderThickness="1,1,1,1" SelectionBrush="#FF854BB7" BorderBrush="#FF62449A" Background="#FFA2A8DC" Foreground="#FF886F6F" MinWidth="137" KeyUp="tbNameInput_KeyUp" SelectionChanged="tbNameInput_SelectionChanged"/>
         <TextBlock x:Name="tblLoserMessage_Copy" HorizontalAlignment="Center" Height="65" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontFamily="Dunkin" Foreground="#FF352735" TextAlignment="Center" FontSize="14" MinWidth="138" Text="Please input your name below for the leaderboards." Margin="0,170,0,0"/>
+        <Image HorizontalAlignment="Left" Height="180" Margin="-23,18,0,0" VerticalAlignment="Top" Width="155" Source="/game_over.png"/>
+        <Image HorizontalAlignment="Left" Height="180" Margin="268,20,0,0" VerticalAlignment="Top" Width="155" Source="/game_over.png"/>
     </Grid>
 </Window>

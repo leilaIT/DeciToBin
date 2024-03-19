@@ -10,8 +10,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dtb blank wp.png"/>
         </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="425" Source="/3-removebg-preview.png" Margin="92,-20,0,0" MinWidth="228"/>
-        <TextBlock x:Name="tblGameOver" HorizontalAlignment="Left" Height="50" MinHeight="31" Margin="166,67,0,0" TextWrapping="Wrap" Text="Top Players" VerticalAlignment="Top" Width="254" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="30" MinWidth="136" TextAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="425" Source="/3-removebg-preview.png" Margin="96,-20,0,0" MinWidth="228"/>
+        <TextBlock x:Name="tblGameOver" HorizontalAlignment="Left" Height="50" MinHeight="31" Margin="170,67,0,0" TextWrapping="Wrap" Text="Top Players" VerticalAlignment="Top" Width="254" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="30" MinWidth="136" TextAlignment="Center"/>
         <Border CornerRadius="10" Margin="55,171,58,40" BorderBrush="#FFA2A8DC" BorderThickness="3,3,3,3" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,6 +28,8 @@
         <TextBlock x:Name="tblPlayer" HorizontalAlignment="Left" Height="23" MinHeight="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontFamily="Dunkin" Foreground="#FF352735" TextAlignment="Center" FontSize="14" Margin="36,191,0,0" MinWidth="138" Text="Player" RenderTransformOrigin="0.507,0.176"/>
         <TextBlock x:Name="tblHighestRound" HorizontalAlignment="Left" Height="23" MinHeight="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontFamily="Dunkin" Foreground="#FF352735" TextAlignment="Center" FontSize="14" Margin="202,191,0,0" MinWidth="138"><Run Language="en-ph" Text="Highest "/><Run Text="Round"/></TextBlock>
         <TextBlock x:Name="tblPlayTime" HorizontalAlignment="Left" Height="23" MinHeight="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontFamily="Dunkin" Foreground="#FF352735" TextAlignment="Center" FontSize="14" Margin="385,191,0,0" MinWidth="138" Text="Total Play Time"/>
+        <Image HorizontalAlignment="Left" Height="257" Margin="-44,29,0,0" VerticalAlignment="Top" Width="224" Source="/trophy_pic.png"/>
+        <Image HorizontalAlignment="Left" Height="257" Margin="420,29,0,0" VerticalAlignment="Top" Width="224" Source="/trophy_pic.png"/>
 
     </Grid>
 </Window>
