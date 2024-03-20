@@ -27,7 +27,7 @@ namespace DeciToBin
         }
         private void btnEasy_Click(object sender, RoutedEventArgs e)
         {
-            afterModeSelection(60, 32, "Beginner");
+            afterModeSelection(60, 64, "Beginner");
         }
 
         private void btnAdv_Click(object sender, RoutedEventArgs e)

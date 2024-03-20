@@ -21,11 +21,18 @@ namespace DeciToBin
     public partial class Window3 : Window
     {
         private List<string[]> sortedlb = new List<string[]>();
-        public Window3()
+        public Window3(int viewLB)
         {
             InitializeComponent();
             if (Application.Current.Windows.Count > 2)
                 AllWindows._mainwindowMenu.closeUnnecessary();
+            if(viewLB == 1) //played a game and lost
+                getLeaderboardInfo("Leaderboard.csv");
+            else //just wants to view
+            {
+
+            }
+            readFromCSV("Leaderboard.csv");
         }
         public void getLeaderboardInfo(string fileName)
         {
@@ -100,7 +107,7 @@ namespace DeciToBin
             {
                 if (lbPlayer.Items.Count < 10 && lbScore.Items.Count < 10 && lbPlayTime.Items.Count < 10)
                 {
-                    lbPlayer.Items.Add(sortedlb[x][0]);
+                    lbPlayer.Items.Add($"{x + 1}.{sortedlb[x][0]}");
                     lbScore.Items.Add(sortedlb[x][1]);
                     lbPlayTime.Items.Add($"{sortedlb[x][2]}:{sortedlb[x][3]}");
                     lbMode.Items.Add($"{sortedlb[x][4]}");

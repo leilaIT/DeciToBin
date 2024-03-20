@@ -51,7 +51,6 @@ namespace DeciToBin
                 AllWindows._howToPlay.Show();
             }
         }
-
         private void btnLB_Click(object sender, RoutedEventArgs e)
         {
             openLeaderboard(2);
@@ -60,15 +59,9 @@ namespace DeciToBin
         {
             if (!AllWindows.isLeaderBoard)
             {
-                AllWindows._leaderBoard = new Window3();
+                AllWindows._leaderBoard = new Window3(LBoption);
                 AllWindows.isLeaderBoard = true;
-                if(LBoption == 1)
-                    AllWindows._leaderBoard.getLeaderboardInfo("Leaderboard.csv");
-                else
-                {
-                    AllWindows._leaderBoard.readFromCSV("Leaderboard.csv");
-                    AllWindows._leaderBoard.Show();
-                }
+                AllWindows._leaderBoard.Show();
             }
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

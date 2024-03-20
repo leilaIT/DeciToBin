@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeciToBin"
         mc:Ignorable="d"
-        Title="Window5" Height="500" Width="810" Closing="Window_Closing">
+        Title="Game Mode" Height="500" Width="810" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -81,7 +81,7 @@
         <Button x:Name="btnHard" Content="Proficient" Height="49" HorizontalAlignment="Left" MinHeight="49" Margin="569,174,0,211" Width="160" MinWidth="160" FontSize="17" Click="btnHard_Click" BorderThickness="8,8,8,8" FontFamily="Dunkin Sans" Foreground="#FF6A4C71" Background="{x:Null}" BorderBrush="{x:Null}"/>
         <Image HorizontalAlignment="Center" Height="227" VerticalAlignment="Top" Width="414" Source="/3-removebg-preview.png" Margin="0,-10,0,0" MinWidth="228"/>
         <TextBlock x:Name="tblGameMode" HorizontalAlignment="Center" Height="90" MinHeight="31" Margin="0,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" FontFamily="Dunkin" Foreground="#FF5D155D" FontSize="24" MinWidth="136" TextAlignment="Center"><Run Text="Choose Game "/><LineBreak/><Run Text="Mode"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="tblEasy" HorizontalAlignment="Left" Height="90" MinHeight="90" Margin="26,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontFamily="Dunkin" Foreground="#FFD7C7EC" FontSize="15" MinWidth="136"><Run Text="-Timer is set to 60&#xD;&#xA;-"/><Run Text="Range of g"/><Run Text="iven"/><LineBreak/><Run Text="numbers are from 1-32"/></TextBlock>
+        <TextBlock x:Name="tblEasy" HorizontalAlignment="Left" Height="90" MinHeight="90" Margin="26,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontFamily="Dunkin" Foreground="#FFD7C7EC" FontSize="15" MinWidth="136"><Run Text="-Timer is set to 60&#xA;-"/><Run Text="Range of g"/><Run Text="iven"/><LineBreak/><Run Text="numbers are from 1-"/><Run Language="en-ph" Text="64"/></TextBlock>
         <TextBlock x:Name="tblAdv" HorizontalAlignment="Center" Height="90" MinHeight="90" Margin="0,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontFamily="Dunkin" Foreground="#FFD7C7EC" FontSize="15" MinWidth="136"><Run Text="-Timer is set to "/><Run Language="en-ph" Text="45"/><Run Text="&#xA;-"/><Run Text="Range of g"/><Run Text="iven"/><LineBreak/><Run Text="numbers are from 1-"/><Run Language="en-ph" Text="128"/></TextBlock>
         <TextBlock x:Name="tblHard" HorizontalAlignment="Left" Height="90" MinHeight="90" Margin="539,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontFamily="Dunkin" Foreground="#FFD7C7EC" FontSize="15" MinWidth="136"><Run Text="-Timer is set to 30&#xA;-Range of given&#xD;&#xA;numbers are from 1-255"/><LineBreak/><Run Language="en-ph" Text="-No guide for each digit"/><LineBreak/><Run Language="en-ph"/></TextBlock>
 
