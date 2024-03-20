@@ -34,9 +34,10 @@ namespace DeciToBin
         private int maxTime = 0;
         public int playTimeMin = 0;
         public int playTimeSec = 0;
+        public string modeChosen = "";
         private int reduction = 0;
         public int roundCount = 0;
-        public Window1(int time, int maxRange)
+        public Window1(int time, int maxRange, string mode)
         {
             InitializeComponent();
            
@@ -53,6 +54,7 @@ namespace DeciToBin
             _playTime.Tick += _playTime_Tick;
             _playTime.Interval = new TimeSpan(0, 0, 0, 1, 0);
             
+            modeChosen = mode;
             maxNum = maxRange;
             maxTime = time;
             roundTime = time;

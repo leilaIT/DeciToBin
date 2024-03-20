@@ -27,23 +27,23 @@ namespace DeciToBin
         }
         private void btnEasy_Click(object sender, RoutedEventArgs e)
         {
-            afterModeSelection(60, 32);
+            afterModeSelection(60, 32, "Beginner");
         }
 
         private void btnAdv_Click(object sender, RoutedEventArgs e)
         {
-            afterModeSelection(45, 128);
+            afterModeSelection(45, 128, "Advanced");
         }
 
         private void btnHard_Click(object sender, RoutedEventArgs e)
         {
-            afterModeSelection(30, 255);
+            afterModeSelection(30, 255, "Proficient");
         }
-        private void afterModeSelection(int time, int maxRange)
+        private void afterModeSelection(int time, int maxRange, string mode)
         {
             if (!AllWindows.isStartGame)
             {
-                AllWindows._startGame = new Window1(time, maxRange);
+                AllWindows._startGame = new Window1(time, maxRange, mode);
                 if(time == 30)
                 {
                     AllWindows._startGame.tbl128.Text = "?";

@@ -34,7 +34,8 @@ namespace DeciToBin
                 sw.WriteLine($"{AllWindows._gameOver.name}, " +
                              $"{AllWindows._startGame.roundCount}, " +
                              $"{AllWindows._startGame.playTimeMin}, " +
-                             $"{AllWindows._startGame.playTimeSec}");
+                             $"{AllWindows._startGame.playTimeSec}, " +
+                             $"{AllWindows._startGame.modeChosen}");
             }
         }
         public void readFromCSV(string fileName)
@@ -102,6 +103,7 @@ namespace DeciToBin
                     lbPlayer.Items.Add(sortedlb[x][0]);
                     lbScore.Items.Add(sortedlb[x][1]);
                     lbPlayTime.Items.Add($"{sortedlb[x][2]}:{sortedlb[x][3]}");
+                    lbMode.Items.Add($"{sortedlb[x][4]}");
                 }
                 else
                     break;
